@@ -1,5 +1,5 @@
 1. Create a Task Class: Define a Task class that has attributes like a
-task name, description, and a status (e.g., completed or not).
+task name and description.
 
 2. User Interface: Implement a text-based menu system that allows users to:
     • Add a new task.
