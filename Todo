@@ -4,7 +4,6 @@ task name and description.
 2. User Interface: Implement a text-based menu system that allows users to:
     • Add a new task.
     • List all tasks.
-    • Mark a task as completed.
     • Remove a task.
     • Quit the application.
 

@@ -8,7 +8,7 @@ public class Task {
 
     // Constructors
     Task(){
-        this.name = "Task";        
+        this.name = "Untitled";        
         this.dateCreated = LocalDate.now();
         this.description = "";
     }

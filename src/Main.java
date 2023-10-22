@@ -1,20 +1,16 @@
 import java.util.Scanner;
 
 public class Main {
+
+    static Task task;
     
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
-        boolean isRunning = false;
-
-        System.out.println("Start Application");
-        System.out.println("1: start | 2: nope");
-        int startChoice = scanner.nextInt();
-
-        if(startChoice == 1){
-            isRunning = true; 
-        }
+        boolean isRunning = true;
         
+        System.out.println("Welcome!");
+        System.out.println("Choose an option");
         while(isRunning){
             isRunning = startApp();
         }
@@ -34,15 +30,13 @@ public class Main {
 
 
         Scanner scanner = new Scanner(System.in);
-        Task task;
 
-        System.out.println("Welcome!");
-        System.out.println("Choose an option");
         System.out.println("1. Create task");
-        System.out.println("2. Add a task");
-        System.out.println("3. List all tasks");
-        System.out.println("4. Remove a task");
-        System.out.println("5. Quit application");
+        System.out.println("2. Add a task");        
+        System.out.println("3. Read from task");
+        System.out.println("4. List all tasks");
+        System.out.println("5. Remove a task");
+        System.out.println("6. Quit application");
 
         int choice = scanner.nextInt();
 
@@ -51,25 +45,37 @@ public class Main {
                 task = createTask();
                 break;
             case 2:
-                
+                System.out.println(task.toString());
                 break;
             case 3:
+                readTask();
                 break;
             case 4:
                 break;
-            case 5:
+            case 6:
                 System.out.println("Bye!");
                 return false;
+            default: 
+                System.out.println("Invalid option");
         }
         return true;
     }
 
     static Task createTask(){
         Scanner scanner = new Scanner(System.in);
+        FileManipulation handler = new FileManipulation();
         System.out.println("Enter Task name: ");
         String name = scanner.nextLine();
 
         Task task = new Task(name);
+        handler.createFile("/Users/mac/Desktop/Java/tasks/"+task.getName());
         return task;
+    }
+    static void readTask(){
+        Scanner scanner = new Scanner(System.in);
+        FileManipulation handler = new FileManipulation();
+        System.out.println("Enter task name: ");
+        String description = handler.readFile("/Users/mac/Desktop/Java/tasks/"+scanner.nextLine());
+        System.out.println(description);
     }
 }
