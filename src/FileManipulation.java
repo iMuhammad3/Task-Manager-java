@@ -38,4 +38,14 @@ public class FileManipulation {
         return content;
     }
 
+    void deleteFile(String fileName){
+        File file = new File(fileName);
+
+        if(file.delete()){
+            System.out.println("File deleted successfully");
+        } else {
+            System.out.println("Something went wrong");
+        }
+    }
+
 }
